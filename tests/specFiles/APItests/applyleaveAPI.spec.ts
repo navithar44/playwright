@@ -3,7 +3,7 @@ import { LoginPage } from '../../pageObject/login';
 import login_testdata from '../../testData/login_testdata.json'
 
 test('verify Employee flow', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/');
+  await page.goto('/');
 const loginObj=new LoginPage(page);
 await loginObj.login(login_testdata.username,login_testdata.password);
 await page.waitForTimeout(2000);
@@ -13,7 +13,7 @@ await expect(
     const api = page.context().request;
     // API request
     const response = await api.post(
-        'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/leave/leave-requests',
+        '/web/index.php/api/v2/leave/leave-requests',
         {
             data: {
                 leaveTypeId: 3,
