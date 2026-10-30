@@ -14,21 +14,21 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
         stage('Install playwright') {
             steps {
                 echo 'Installing playwright...'
-                bat 'npm install @playwright/test'
+                sh 'npm install @playwright/test'
             }
         }
 
         stage('run tests') {
             steps {
                 echo 'Running tests...'
-                bat 'npm playwright test'
+                sh 'npx playwright test'
             }
         }
     }
